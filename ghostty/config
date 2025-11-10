@@ -1,0 +1,5 @@
+maximize = true
+
+font-size=18
+background-opacity = 0.85
+background-blur = true
