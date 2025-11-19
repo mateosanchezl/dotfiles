@@ -1,0 +1,14 @@
+# --- Font ---
+theme = Black Metal
+font-size = 14
+
+# --- Window layout ---
+window-padding-x = 14
+window-padding-y = 14
+
+# --- Titlebar / tabs (macOS) ---
+# "tabs" integrates tabs into titlebar, "transparent" is also common
+macos-titlebar-style = tabs
+
+# --- Cursor ---
+cursor-style = bar
