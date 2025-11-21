@@ -1,5 +1,5 @@
 # --- Font ---
-theme = Black Metal
+theme = Gruvbox Material
 font-size = 16
 
 # --- Window layout ---
