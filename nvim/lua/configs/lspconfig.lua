@@ -6,7 +6,6 @@ local servers = {
   "intelephense",
   "ts_ls",
   "eslint",
-  "vue_ls",
   "cssls",
   "tailwindcss",
   "emmet_ls",
@@ -16,7 +15,7 @@ local servers = {
   "prismals",
   "graphql",
   "marksman",
-  "vtsls"
+  "vtsls",
 }
 
 vim.lsp.enable(servers)
