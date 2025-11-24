@@ -6,8 +6,8 @@
 local M = {}
 
 M.base46 = {
-  theme = "gruvbox",
   transparency = true,
+  theme = "gruvbox",
   -- hl_override = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
