@@ -1,4 +1,4 @@
-local nvchad_config = require("nvchad.configs.nvimtree")
+local nvchad_config = require "nvchad.configs.nvimtree"
 
 return vim.tbl_deep_extend("force", nvchad_config, {
   view = {

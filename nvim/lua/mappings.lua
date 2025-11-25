@@ -32,19 +32,32 @@ map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 local function term_nav(direction)
   return function()
     -- Exit terminal mode first
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true), "n", false)
+    vim.api.nvim_feedkeys(
+      vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true),
+      "n",
+      false
+    )
     -- Move to the window
     vim.cmd("wincmd " .. direction)
     -- Check if we're in a terminal and enter insert mode
     vim.schedule(function()
       if vim.bo.buftype == "terminal" then
-        vim.cmd("startinsert")
+        vim.cmd "startinsert"
       end
     end)
   end
 end
 
-map("t", "<C-h>", term_nav("h"), { desc = "Go to left window" })
-map("t", "<C-j>", term_nav("j"), { desc = "Go to bottom window" })
-map("t", "<C-k>", term_nav("k"), { desc = "Go to top window" })
-map("t", "<C-l>", term_nav("l"), { desc = "Go to right window" })
+map("t", "<C-h>", term_nav "h", { desc = "Go to left window" })
+map("t", "<C-j>", term_nav "j", { desc = "Go to bottom window" })
+map("t", "<C-k>", term_nav "k", { desc = "Go to top window" })
+map("t", "<C-l>", term_nav "l", { desc = "Go to right window" })
+
+-- Telescope
+map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true })
+map(
+  "n",
+  "<leader>fw",
+  "<cmd>Telescope current_buffer_fuzzy_find<CR>",
+  { desc = "telescope find in current buffer" }
+)
