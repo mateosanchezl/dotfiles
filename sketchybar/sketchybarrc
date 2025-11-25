@@ -1,0 +1,135 @@
+#!/usr/bin/env bash
+
+CONFIG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export CONFIG_DIR
+
+source "$CONFIG_DIR/lib/colors.sh"
+source "$CONFIG_DIR/lib/icons.sh"
+
+# Reset existing items to avoid duplicates during reloads
+sketchybar --remove '/.*/' 2>/dev/null
+
+sketchybar --bar \
+  height=36 \
+  corner_radius=14 \
+  color=$BAR_BG \
+  blur_radius=45 \
+  padding_left=14 \
+  padding_right=14 \
+  y_offset=6 \
+  margin=10 \
+  border_width=2 \
+  border_color=$BAR_BORDER \
+  shadow=on \
+  shadow_distance=8 \
+  shadow_angle=180 \
+  shadow_color=$SHADOW_COLOR
+
+sketchybar --default \
+  icon.font="JetBrainsMono Nerd Font:Bold:14.0" \
+  label.font="JetBrainsMono Nerd Font:Medium:13.0" \
+  padding_left=8 \
+  padding_right=8 \
+  icon.color=$ITEM_FG \
+  label.color=$ITEM_FG \
+  background.color=$ITEM_BG \
+  background.corner_radius=10 \
+  background.height=26 \
+  updates=on
+
+# Apple / launcher
+sketchybar --add item apple.logo left \
+  --set apple.logo \
+    icon="$ICON_APPLE" \
+    label.drawing=off \
+    background.color=$ITEM_BG_SELECTED \
+    padding_left=12 \
+    padding_right=12 \
+    click_script="osascript -e 'tell application \"Finder\" to activate'"
+
+# Separator helper
+sketchybar --add item left.spacer left \
+  --set left.spacer \
+    icon="$ICON_SEPARATOR" \
+    label.drawing=off \
+    padding_left=2 \
+    padding_right=2 \
+    background.drawing=off \
+    icon.color=$ITEM_SUBTLE
+
+# Spaces
+SPACE_LABELS=(一 二 三 四 五 六 七 八 九 十)
+for sid in {1..10}; do
+  idx=$((sid - 1))
+  sketchybar --add space space."$sid" left \
+    --set space."$sid" \
+      associated_space=$sid \
+      icon="${SPACE_LABELS[$idx]}" \
+      icon.font="Liga SFMono Nerd Font:Regular:13.0" \
+      icon.color=$ITEM_SUBTLE \
+      background.color=$ITEM_BG \
+      script="$CONFIG_DIR/scripts/space.sh" \
+      label.drawing=off \
+      padding_left=6 \
+      padding_right=6
+  sketchybar --subscribe space."$sid" space_change mouse.clicked mission_control_exit
+done
+
+# Center media widget
+sketchybar --add item media center \
+  --set media \
+    script="$CONFIG_DIR/scripts/now_playing.sh" \
+    icon="$ICON_MUSIC" \
+    icon.padding_right=6 \
+    icon.color=$BAR_HIGHLIGHT \
+    background.color=$ITEM_BG \
+    label.max_chars=38 \
+    update_freq=5 \
+    drawing=on
+
+# Right side items
+sketchybar --add item cpu right \
+  --set cpu \
+    icon="$ICON_CPU" \
+    script="$CONFIG_DIR/scripts/cpu.sh" \
+    label.padding_left=4 \
+    update_freq=8
+
+sketchybar --add item memory right \
+  --set memory \
+    icon="$ICON_MEM" \
+    script="$CONFIG_DIR/scripts/memory.sh" \
+    label.padding_left=4 \
+    update_freq=10
+
+sketchybar --add item wifi right \
+  --set wifi \
+    icon="$ICON_WIFI_ON" \
+    script="$CONFIG_DIR/scripts/wifi.sh" \
+    update_freq=15
+
+sketchybar --add item battery right \
+  --set battery \
+    icon="$ICON_BATTERY_100" \
+    script="$CONFIG_DIR/scripts/battery.sh" \
+    update_freq=30 \
+    background.color=$ITEM_BG_SELECTED \
+    icon.color=$GRUV_DARK0 \
+    label.color=$GRUV_DARK0
+
+sketchybar --add item clock right \
+  --set clock \
+    icon="$ICON_CLOCK" \
+    script="$CONFIG_DIR/scripts/clock.sh" \
+    label.padding_left=6 \
+    update_freq=15
+
+sketchybar --add bracket stats cpu memory
+sketchybar --set stats background.color=$ITEM_BG \
+  background.corner_radius=12 \
+  background.drawing=on
+
+sketchybar --add bracket status wifi battery clock
+sketchybar --set status background.color=$ITEM_BG \
+  background.corner_radius=12 \
+  background.drawing=on
