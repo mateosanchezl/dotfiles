@@ -34,7 +34,7 @@ return {
           end
         end,
       })
-
+      opts.git = vim.tbl_deep_extend("force", opts.git or {}, { ignore = false })
       return opts
     end,
   },

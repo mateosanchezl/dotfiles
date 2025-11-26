@@ -54,6 +54,13 @@ map("t", "<C-k>", term_nav "k", { desc = "Go to top window" })
 map("t", "<C-l>", term_nav "l", { desc = "Go to right window" })
 
 -- Telescope
+map("n", "<leader>ff", function()
+  require("telescope.builtin").find_files {
+    hidden = true,
+    no_ignore = true,
+  }
+end, { desc = "Find files (including git-ignored)" })
+
 map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true })
 map(
   "n",
