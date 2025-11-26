@@ -125,5 +125,12 @@ return {
         desc = "Quickfix List (Trouble)",
       },
     },
+    {
+      "goolord/alpha-nvim",
+      lazy = false,
+      config = function()
+        require "configs.alpha"
+      end,
+    },
   },
 }
