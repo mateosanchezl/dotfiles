@@ -16,6 +16,7 @@ local servers = {
   "graphql",
   "marksman",
   "vtsls",
+  "vue_language_server",
 }
 
 vim.lsp.enable(servers)

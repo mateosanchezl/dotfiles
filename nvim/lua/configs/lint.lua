@@ -5,7 +5,7 @@ lint.linters_by_ft = {
   typescript = { "eslint_d" },
   vue = { "eslint_d" },
   go = { "golangci_lint" },
-  php = { "phpcs" },
+  php = { "pint" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
