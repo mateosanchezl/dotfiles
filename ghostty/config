@@ -13,3 +13,6 @@ macos-titlebar-style = tabs
 # --- Cursor ---
 cursor-style = bar
 maximize = true
+
+background-opacity = 0.95
+background-blur = true
