@@ -6,6 +6,7 @@ lint.linters_by_ft = {
   vue = { "eslint_d" },
   go = { "golangci_lint" },
   php = { "pint" },
+  python = { "flake8" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {

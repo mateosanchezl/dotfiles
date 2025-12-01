@@ -17,6 +17,7 @@ local servers = {
   "marksman",
   "vtsls",
   "vue_language_server",
+  "pyright",
 }
 
 vim.lsp.enable(servers)

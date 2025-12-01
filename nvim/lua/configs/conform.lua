@@ -11,6 +11,7 @@ local options = {
     json = { "prettierd", "prettier" },
     yaml = { "prettierd", "prettier" },
     markdown = { "prettierd", "prettier" },
+    python = { "black" },
   },
   format_on_save = {
     -- These options will be passed to conform.format()
