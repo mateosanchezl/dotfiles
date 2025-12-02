@@ -1,5 +1,5 @@
 # --- Font ---
-theme = TokyoNight Night
+theme = Vibrant Ink
 font-size = 16
 
 # --- Window layout ---
@@ -11,8 +11,7 @@ window-padding-y = 14
 macos-titlebar-style = tabs
 
 # --- Cursor ---
-cursor-style = bar
+cursor-style = block
 maximize = true
 
-background-opacity = 0.95
-background-blur = true
+shell-integration-features = no-cursor
