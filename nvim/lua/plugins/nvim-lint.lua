@@ -8,7 +8,7 @@ return {
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
       vue = { "eslint_d" },
-      go = { "golangci_lint" },
+      go = { "golangcilint" },
       php = { "pint" },
       python = { "flake8" },
     }
