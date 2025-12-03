@@ -9,8 +9,8 @@ return {
         diagnostics = "nvim_lsp",
         offsets = {
           {
-            filetype = "Neotree",
-            text = "Neotree",
+            filetype = "neo-tree",
+            text = "",
             highlight = "Directory",
             separator = true,
           },
