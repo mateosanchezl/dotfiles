@@ -1,5 +1,5 @@
 # --- Font ---
-theme = Kanagawa Wave
+theme = Black Metal
 font-size = 16
 
 # --- Window layout ---
@@ -15,3 +15,5 @@ cursor-style = block
 maximize = true
 
 shell-integration-features = no-cursor
+
+font-family = FiraCode Nerd Font
