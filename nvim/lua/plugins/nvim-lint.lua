@@ -11,6 +11,7 @@ return {
       go = { "golangcilint" },
       php = { "pint" },
       python = { "flake8" },
+      rust = { "clippy" },
     }
 
     vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {

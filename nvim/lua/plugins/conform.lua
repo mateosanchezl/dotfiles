@@ -16,6 +16,7 @@ return {
       yaml = { "prettierd", "prettier" },
       markdown = { "prettierd", "prettier" },
       python = { "black" },
+      rust = { "rustfmt" },
     },
     format_on_save = {
       timeout_ms = 5000,

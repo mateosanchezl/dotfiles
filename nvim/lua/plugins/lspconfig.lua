@@ -123,6 +123,8 @@ return {
       "vtsls",
       "vue_language_server",
       "pyright",
+      "rust_analyzer",
+      "rust-analyzer",
     }
 
     -- Enable all servers
