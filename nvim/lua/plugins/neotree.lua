@@ -15,7 +15,9 @@ return {
         hide_dotfiles = false,
         hide_gitignored = false,
       },
-      follow_current_file = true, -- Opens current file in tree when opening tree
+      follow_current_file = {
+        enabled = true,
+      },
     },
   },
 }
