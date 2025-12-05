@@ -15,6 +15,7 @@ return {
             separator = true,
           },
         },
+        always_show_bufferline = false,
       },
     }
   end,
