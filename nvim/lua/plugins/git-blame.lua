@@ -3,6 +3,6 @@ return {
   event = "VeryLazy",
   opts = {
     message_template = "<author>, <date>",
-    date_format = "%m-%d-%y",
+    date_format = "%r",
   },
 }

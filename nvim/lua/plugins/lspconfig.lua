@@ -2,10 +2,20 @@ return {
   "neovim/nvim-lspconfig",
   event = "User FilePost",
   config = function()
+    local severity = vim.diagnostic.severity
+    local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
+
     -- Diagnostic configuration
     vim.diagnostic.config {
       virtual_text = { prefix = "●" },
-      signs = true,
+      signs = {
+        text = {
+          [severity.ERROR] = signs.Error,
+          [severity.WARN] = signs.Warn,
+          [severity.HINT] = signs.Hint,
+          [severity.INFO] = signs.Info,
+        },
+      },
       underline = true,
       update_in_insert = false,
       severity_sort = true,
@@ -14,13 +24,6 @@ return {
         source = true,
       },
     }
-
-    -- Diagnostic signs
-    local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
 
     -- LSP capabilities
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -44,10 +47,8 @@ return {
 
     -- On init - disable semantic tokens
     local on_init = function(client, _)
-      if client.supports_method then
-        if client.supports_method "textDocument/semanticTokens" then
-          client.server_capabilities.semanticTokensProvider = nil
-        end
+      if client.supports_method and client:supports_method "textDocument/semanticTokens" then
+        client.server_capabilities.semanticTokensProvider = nil
       elseif client.server_capabilities.semanticTokensProvider then
         client.server_capabilities.semanticTokensProvider = nil
       end
