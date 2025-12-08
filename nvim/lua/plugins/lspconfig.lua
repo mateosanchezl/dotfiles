@@ -76,6 +76,9 @@ return {
         map("n", "<leader>ra", vim.lsp.buf.rename, opts "Rename")
         map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
         map("n", "gr", vim.lsp.buf.references, opts "Go to references")
+        map("n", "gl", function()
+          vim.diagnostic.open_float(nil, { focus = true, scope = "line", border = "rounded" })
+        end, opts "Line diagnostics")
       end,
     })
 

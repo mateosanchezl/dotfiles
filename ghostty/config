@@ -1,6 +1,7 @@
 # --- Font ---
-theme = TokyoNight Night
+theme = Vague
 font-size = 16
+font-feature = -liga, -calt
 
 # --- Window layout ---
 window-padding-x = 14

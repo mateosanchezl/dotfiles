@@ -15,12 +15,42 @@
 --   end,
 -- }
 --
+-- return {
+--   "folke/tokyonight.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     require("tokyonight").setup {
+--       transparent = true,
+--     }
+--     vim.cmd "colorscheme tokyonight-night"
+--   end,
+-- }
+--
+-- return {
+--   "catppuccin/nvim",
+--   lazy = false,
+--   name = "catppuccin",
+--   priority = 1000,
+--   config = function()
+--     require("catppuccin").setup {
+--       flavour = "mocha",
+--       no_italic = true,
+--       no_bold = true,
+--     }
+--     vim.cmd "colorscheme catppuccin"
+--   end,
+-- }
+
 return {
-  "folke/tokyonight.nvim",
+  "vague-theme/vague.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-    require("tokyonight").setup {}
-    vim.cmd "colorscheme tokyonight-night"
+    require("vague").setup {
+      bold = false,
+      italic = false,
+    }
+    vim.cmd "colorscheme vague"
   end,
 }

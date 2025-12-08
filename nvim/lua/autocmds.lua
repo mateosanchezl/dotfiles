@@ -17,7 +17,7 @@ autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
 
     if file ~= "" and buftype ~= "nofile" and vim.g.ui_entered then
       vim.api.nvim_exec_autocmds("User", { pattern = "FilePost", modeline = false })
-      vim.api.nvim_del_augroup_by_name("FilePost")
+      vim.api.nvim_del_augroup_by_name "FilePost"
 
       vim.schedule(function()
         vim.api.nvim_exec_autocmds("FileType", {})
@@ -30,50 +30,12 @@ autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
   end,
 })
 
--------------------------------------- Terminal Autocmds (your customizations) ------------------------------------------
-
--- Auto-enter insert mode when opening terminal
-autocmd("TermOpen", {
-  group = augroup("TerminalInsert", { clear = true }),
-  callback = function()
-    vim.cmd("startinsert")
-  end,
-})
-
--- Auto-enter insert mode when switching to terminal buffer
-autocmd("WinEnter", {
-  group = augroup("TerminalWinEnter", { clear = true }),
-  callback = function()
-    if vim.bo.buftype == "terminal" then
-      vim.cmd("startinsert")
-    end
-  end,
-})
-
--------------------------------------- Cleanup on Quit (your customization) ------------------------------------------
-
--- Close everything before quitting
-autocmd("QuitPre", {
-  group = augroup("CleanupOnQuit", { clear = true }),
-  callback = function()
-    -- Close nvim-tree if open
-    pcall(vim.cmd, "NvimTreeClose")
-
-    -- Close all terminal buffers
-    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-      if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buftype == "terminal" then
-        pcall(vim.api.nvim_buf_delete, buf, { force = true })
-      end
-    end
-  end,
-})
-
 -------------------------------------- Highlight on Yank ------------------------------------------
 
 autocmd("TextYankPost", {
   group = augroup("HighlightYank", { clear = true }),
   callback = function()
-    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+    vim.highlight.on_yank { higroup = "IncSearch", timeout = 200 }
   end,
 })
 
@@ -95,7 +57,6 @@ autocmd("BufReadPost", {
 autocmd("VimResized", {
   group = augroup("ResizeSplits", { clear = true }),
   callback = function()
-    vim.cmd("tabdo wincmd =")
+    vim.cmd "tabdo wincmd ="
   end,
 })
-

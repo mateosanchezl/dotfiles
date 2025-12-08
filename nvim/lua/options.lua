@@ -15,7 +15,6 @@ o.clipboard = "unnamedplus"
 -- Cursor
 o.cursorline = true
 o.cursorlineopt = "number"
-o.guicursor = "n-v-c:block,i:blinkwait700-blinkon400-blinkoff250"
 o.termguicolors = true
 
 -- Indenting

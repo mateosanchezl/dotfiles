@@ -12,7 +12,7 @@ return {
       go = { "golangcilint" },
       php = { "phpcs" },
       python = { "flake8" },
-      rust = { "clippy" },
+      -- rust = { "clippy" },
     }
 
     -- Only run linters that have a resolved executable to avoid ENOENT errors
