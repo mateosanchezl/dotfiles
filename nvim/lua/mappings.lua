@@ -113,3 +113,6 @@ map("i", "<Tab>", function()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", true)
   end
 end, { desc = "Supermaven → LuaSnip → cmp → Tab" })
+
+-- Diff view
+map("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Diff view" })
