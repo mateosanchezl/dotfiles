@@ -64,6 +64,7 @@ o.updatetime = 250
 -- Line wrapping behavior
 opt.whichwrap:append "<>[]hl"
 
+o.swapfile = false
 -------------------------------------- Disable Providers ------------------------------------------
 
 g.loaded_node_provider = 0

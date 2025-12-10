@@ -12,6 +12,7 @@ return {
       go = { "golangcilint" },
       php = { "phpcs" },
       python = { "flake8" },
+      html = { "htmlhint" },
       -- rust = { "clippy" },
     }
 

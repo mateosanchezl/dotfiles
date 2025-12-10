@@ -41,7 +41,15 @@ map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Close buffer" })
 map("n", "<leader>/", "gcc", { desc = "Toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 
-map("n", "<leader>e", "<cmd>Oil<CR>")
+-- Neotree
+map("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle nvim-tree" })
+
+map(
+  "n",
+  "<leader>gb",
+  "<cmd>Neotree git_status toggle<cr>",
+  { desc = "Toggle Neo-tree Git Status" }
+)
 
 -------------------------------------- Telescope ------------------------------------------
 

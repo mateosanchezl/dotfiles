@@ -129,6 +129,7 @@ return {
       "pyright",
       "rust_analyzer",
       "rust-analyzer",
+      "html-lsp",
     }
 
     -- Enable all servers
