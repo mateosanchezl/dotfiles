@@ -1,6 +1,6 @@
 return {
   "mfussenegger/nvim-lint",
-  event = "User FilePost",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     local lint = require "lint"
     local executable = vim.fn.executable

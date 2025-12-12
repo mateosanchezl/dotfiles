@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  event = "User FilePost",
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     local severity = vim.diagnostic.severity
     local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }

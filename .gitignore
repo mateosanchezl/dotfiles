@@ -4,3 +4,5 @@ uv
 fish
 nvim.backup
 opencode
+
+nvim/lua/plugins/dev.lua
