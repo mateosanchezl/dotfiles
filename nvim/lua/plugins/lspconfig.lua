@@ -2,6 +2,26 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
+    local severity = vim.diagnostic.severity
+    local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+    vim.diagnostic.config {
+      virtual_text = { prefix = " " },
+      signs = {
+        text = {
+          [severity.ERROR] = signs.Error,
+          [severity.WARN] = signs.Warn,
+          [severity.HINT] = signs.Hint,
+          [severity.INFO] = signs.Info,
+        },
+      },
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+      float = {
+        border = "rounded",
+        source = true,
+      },
+    }
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local bufnr = args.buf
@@ -23,6 +43,16 @@ return {
           vim.diagnostic.open_float(nil, { focus = true, scope = "line", border = "rounded" })
         end, opts "Line diagnostics")
       end,
+    })
+
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+        },
+      },
     })
 
     local servers = {
