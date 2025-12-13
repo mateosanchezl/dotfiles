@@ -1,8 +1,6 @@
--- Set leader key before lazy
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
 if not vim.uv.fs_stat(lazypath) then
@@ -12,17 +10,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
--- Load lazy.nvim with plugin specs
 require("lazy").setup("plugins", {
   defaults = { lazy = true },
-  ui = {
-    icons = {
-      ft = "",
-      lazy = "󰂠 ",
-      loaded = "",
-      not_loaded = "",
-    },
-  },
   performance = {
     rtp = {
       disabled_plugins = {
@@ -46,7 +35,6 @@ require("lazy").setup("plugins", {
         "zip",
         "zipPlugin",
         "tutor",
-        "syntax",
         "synmenu",
         "optwin",
         "compiler",

@@ -9,7 +9,7 @@ return {
       javascript = { "prettierd", "prettier", "eslint_d" },
       typescript = { "prettierd", "prettier", "eslint_d" },
       vue = { "prettierd", "prettier" },
-      php = { "php_cs_fixer, pint" },
+      php = { "php_cs_fixer" },
       css = { "prettierd", "prettier" },
       html = { "prettierd", "prettier" },
       json = { "prettierd", "prettier" },
