@@ -1,0 +1,153 @@
+#!/bin/bash
+
+# ───────────────────────────────────────────────────────────────
+# SketchyBar Configuration - Tokyo Night Theme
+# ───────────────────────────────────────────────────────────────
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/icons.sh"
+
+# ───────────────────────────────────────────────────────────────
+# Bar Configuration
+# ───────────────────────────────────────────────────────────────
+
+sketchybar --bar \
+  position=top \
+  height=32 \
+  color=$BAR_COLOR \
+  border_width=0 \
+  shadow=off \
+  margin=0 \
+  y_offset=0 \
+  padding_left=8 \
+  padding_right=8 \
+  notch_width=200 \
+  topmost=window \
+
+# ───────────────────────────────────────────────────────────────
+# Default Item Configuration
+# ───────────────────────────────────────────────────────────────
+
+sketchybar --default \
+  padding_left=8 \
+  padding_right=8 \
+  icon.font="SF Pro:Semibold:14.0" \
+  icon.color=$FOREGROUND \
+  icon.padding_left=6 \
+  icon.padding_right=4 \
+  label.font="SF Pro:Semibold:13.0" \
+  label.color=$FOREGROUND \
+  label.padding_left=4 \
+  label.padding_right=6 \
+  background.color=$ITEM_BG \
+  background.corner_radius=8 \
+  background.height=24 \
+  background.drawing=off
+
+# ───────────────────────────────────────────────────────────────
+# Left Items - Spaces
+# ───────────────────────────────────────────────────────────────
+
+SPACE_ICONS=("1" "2" "3" "4" "5")
+
+for i in "${!SPACE_ICONS[@]}"; do
+  sid="$((i+1))"
+  sketchybar --add space space.$sid left \
+    --set space.$sid \
+      space=$sid \
+      icon="${SPACE_ICONS[i]}" \
+      icon.color=$LIGHT_GRAY \
+      icon.highlight_color=$BLUE \
+      icon.font="SF Pro:Bold:12.0" \
+      icon.padding_left=8 \
+      icon.padding_right=8 \
+      background.color=$ITEM_BG \
+      background.corner_radius=4 \
+      background.height=22 \
+      background.drawing=off \
+      label.drawing=off \
+      script="$PLUGIN_DIR/space.sh" \
+      click_script="osascript -e 'tell application \"System Events\" to key code $((18+i)) using control down'"
+done
+
+# Space bracket
+sketchybar --add bracket spaces '/space\..*/' \
+  --set spaces \
+    background.color=$BRACKET_BG \
+    background.corner_radius=6 \
+    background.height=26 \
+    background.drawing=on
+
+# ───────────────────────────────────────────────────────────────
+# Left Items - Front App
+# ───────────────────────────────────────────────────────────────
+
+sketchybar --add item front_app left \
+  --set front_app \
+    icon.drawing=off \
+    label.font="SF Pro:Semibold:13.0" \
+    label.color=$FOREGROUND \
+    label.padding_left=8 \
+    label.padding_right=8 \
+    background.drawing=off \
+    script="$PLUGIN_DIR/front_app.sh" \
+  --subscribe front_app front_app_switched
+
+# ───────────────────────────────────────────────────────────────
+# Right Items - Clock
+# ───────────────────────────────────────────────────────────────
+
+sketchybar --add item clock right \
+  --set clock \
+    icon=$ICON_CLOCK \
+    icon.color=$CYAN \
+    label.color=$FOREGROUND \
+    background.drawing=on \
+    update_freq=10 \
+    script="$PLUGIN_DIR/clock.sh"
+
+# ───────────────────────────────────────────────────────────────
+# Right Items - Battery
+# ───────────────────────────────────────────────────────────────
+
+sketchybar --add item battery right \
+  --set battery \
+    icon.color=$GREEN \
+    label.color=$FOREGROUND \
+    background.drawing=on \
+    update_freq=60 \
+    script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change
+
+# ───────────────────────────────────────────────────────────────
+# Right Items - Volume
+# ───────────────────────────────────────────────────────────────
+
+sketchybar --add item volume right \
+  --set volume \
+    icon=$ICON_VOLUME_HIGH \
+    icon.color=$YELLOW \
+    label.color=$FOREGROUND \
+    background.drawing=on \
+    script="$PLUGIN_DIR/volume.sh" \
+  --subscribe volume volume_change
+
+# ───────────────────────────────────────────────────────────────
+# Right bracket grouping
+# ───────────────────────────────────────────────────────────────
+
+sketchybar --add bracket status volume wifi battery clock \
+  --set status \
+    background.color=$BRACKET_BG \
+    background.corner_radius=6 \
+    background.height=26 \
+    background.drawing=on
+
+# ───────────────────────────────────────────────────────────────
+# Initialize
+# ───────────────────────────────────────────────────────────────
+
+sketchybar --hotload on
+sketchybar --update
