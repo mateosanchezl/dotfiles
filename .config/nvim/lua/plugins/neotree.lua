@@ -8,6 +8,11 @@ return {
   },
   lazy = false, -- neo-tree will lazily load itself
   opts = {
+    default_component_configs = {
+      icon = {
+        default = "",
+      },
+    },
     close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
     filesystem = {
       filtered_items = {

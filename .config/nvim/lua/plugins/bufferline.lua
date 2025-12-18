@@ -8,6 +8,10 @@ return {
     bufferline.setup {
       options = {
         diagnostics = "nvim_lsp",
+        show_buffer_icons = false,
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+        show_tab_indicators = false,
         offsets = {
           {
             filetype = "neo-tree",
@@ -17,12 +21,10 @@ return {
           },
         },
         buffer_close_icon = "",
-        close_icon = "",
         always_show_bufferline = false,
         indicator = {
           style = "none",
         },
-        show_close_icon = false,
         separator_style = "thin",
       },
       highlights = {
@@ -30,6 +32,42 @@ return {
           italic = false,
           bold = false,
           underline = false,
+        },
+        diagnostic_selected = {
+          italic = false,
+          bold = false,
+        },
+        hint_selected = {
+          italic = false,
+          bold = false,
+        },
+        hint_diagnostic_selected = {
+          italic = false,
+          bold = false,
+        },
+        info_selected = {
+          italic = false,
+          bold = false,
+        },
+        info_diagnostic_selected = {
+          italic = false,
+          bold = false,
+        },
+        warning_selected = {
+          italic = false,
+          bold = false,
+        },
+        warning_diagnostic_selected = {
+          italic = false,
+          bold = false,
+        },
+        error_selected = {
+          italic = false,
+          bold = false,
+        },
+        error_diagnostic_selected = {
+          italic = false,
+          bold = false,
         },
       },
     }

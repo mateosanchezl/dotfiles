@@ -1,11 +1,11 @@
 # --- Font ---
 theme = Vague
-font-size = 16
+font-size = 18
 font-feature = -liga, -calt
 
 # --- Window layout ---
 window-padding-x = 14
-window-padding-y = 14
+window-padding-y = 0
 #
 # --- Titlebar / tabs (macOS) ---
 # "tabs" integrates tabs into titlebar, "transparent" is also common
@@ -17,8 +17,7 @@ maximize = true
 
 shell-integration-features = no-cursor
 
-font-family = FiraCode Nerd Font
-
+font-family = IosevkaTerm NF
 # --- For tmux ---
 keybind = super+digit_1=unbind
 keybind = super+digit_2=unbind
