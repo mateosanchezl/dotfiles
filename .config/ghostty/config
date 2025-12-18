@@ -17,7 +17,7 @@ maximize = true
 
 shell-integration-features = no-cursor
 
-font-family = IosevkaTerm NF
+font-family = Iosevka NF
 # --- For tmux ---
 keybind = super+digit_1=unbind
 keybind = super+digit_2=unbind
