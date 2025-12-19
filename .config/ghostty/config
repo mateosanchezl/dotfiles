@@ -1,6 +1,6 @@
 # --- Font ---
 theme = Vague
-font-size = 18
+font-size = 20
 font-feature = -liga, -calt
 
 # --- Window layout ---

@@ -14,7 +14,7 @@ return {
       prompt_prefix = " ",
       selection_caret = " ",
       entry_prefix = " ",
-      sorting_strategy = "ascending",
+      sorting_strategy = "descending",
       path_display = { "truncate" },
       layout_config = {
         horizontal = {

@@ -9,6 +9,12 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
 map("n", "<C-a>", "<cmd>%y+<CR>", { desc = "Copy whole file" })
+map(
+  "n",
+  "<leader>kb",
+  "<cmd>BufferLineCloseOthers<CR>",
+  { silent = true, desc = "Close all but current buffer" }
+)
 
 map({ "n", "x" }, "<leader>fm", function()
   require("conform").format { lsp_fallback = true }
