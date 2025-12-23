@@ -55,7 +55,32 @@ return {
       },
     })
 
-    local servers = {
+    local vue_ls_path = vim.fn.stdpath "data"
+      .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+
+    vim.lsp.config("vtsls", {
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vue_ls_path,
+            languages = { "vue" },
+          },
+        },
+      },
+      filetypes = {
+        "typescript",
+        "javascript",
+        "javascriptreact",
+        "typescriptreact",
+        "vue",
+      },
+    })
+
+    vim.lsp.config("vue_ls", {})
+
+    -- Enabled servers
+    vim.lsp.enable {
       "lua_ls",
       "gopls",
       "intelephense",
@@ -70,11 +95,9 @@ return {
       "graphql",
       "marksman",
       "vtsls",
-      "vue_language_server",
+      "vue_ls",
       "pyright",
       "rust_analyzer",
     }
-
-    vim.lsp.enable(servers)
   end,
 }
