@@ -1,7 +1,7 @@
 # --- Font ---
-theme = Vague
+theme = Monokai Classic 
 font-size = 20
-font-feature = -liga, -calt
+# font-feature = -liga, -calt
 
 # --- Window layout ---
 window-padding-x = 14
@@ -9,7 +9,7 @@ window-padding-y = 0
 #
 # --- Titlebar / tabs (macOS) ---
 # "tabs" integrates tabs into titlebar, "transparent" is also common
-macos-titlebar-style = hidden 
+macos-titlebar-style = tabs 
 
 # --- Cursor ---
 cursor-style = block
@@ -17,26 +17,4 @@ maximize = true
 
 shell-integration-features = no-cursor
 
-font-family = Iosevka NF
-# --- For tmux ---
-keybind = super+digit_1=unbind
-keybind = super+digit_2=unbind
-keybind = super+digit_3=unbind
-keybind = super+digit_4=unbind
-keybind = super+digit_5=unbind
-keybind = super+digit_6=unbind
-keybind = super+digit_7=unbind
-keybind = super+digit_8=unbind
-keybind = super+digit_9=unbind
-
-keybind = super+one=text:\x021
-keybind = super+two=text:\x022
-keybind = super+three=text:\x023
-keybind = super+four=text:\x024
-keybind = super+five=text:\x025
-keybind = super+six=text:\x026
-keybind = super+seven=text:\x027
-keybind = super+eight=text:\x028
-keybind = super+nine=text:\x029
-
-keybind = super+t=text:\x02c
+font-family = CaskaydiaCove NF
