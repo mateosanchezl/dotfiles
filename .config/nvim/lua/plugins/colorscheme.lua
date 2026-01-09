@@ -41,19 +41,19 @@
 --   end,
 -- }
 --
-return {
-  "vague-theme/vague.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    require("vague").setup {
-      bold = false,
-      italic = false,
-    }
-    vim.cmd "colorscheme vague"
-  end,
-}
-
+-- return {
+--   "vague-theme/vague.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     require("vague").setup {
+--       bold = false,
+--       italic = false,
+--     }
+--     vim.cmd "colorscheme vague"
+--   end,
+-- }
+--
 -- return {
 --   "ellisonleao/gruvbox.nvim",
 --   lazy = false,
@@ -71,3 +71,15 @@ return {
 --     vim.cmd("colorscheme gruvbox")
 --   end,
 -- }
+return {
+  "ribru17/bamboo.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("bamboo").setup {
+      -- optional configuration here
+    }
+    require("bamboo").load()
+    vim.cmd "colorscheme bamboo"
+  end,
+}

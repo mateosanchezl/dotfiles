@@ -10,19 +10,19 @@ return {
   cmd = "Telescope",
   opts = {
     defaults = {
+      preview = false,
       color_devicons = false,
       prompt_prefix = " ",
       selection_caret = " ",
       entry_prefix = " ",
-      sorting_strategy = "descending",
-      path_display = { "truncate" },
+      sorting_strategy = "ascending",
+      path_display = { "smart" },
       layout_config = {
         horizontal = {
-          prompt_position = "bottom",
-          preview_width = 0.70,
+          prompt_position = "top",
         },
-        width = 0.95,
-        height = 0.95,
+        width = 0.50,
+        height = 0.50,
       },
       mappings = {
         n = { ["q"] = require("telescope.actions").close },
